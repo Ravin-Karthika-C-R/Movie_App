@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="bg-dark container w-50 me-5 mt-5 p-5" style="background-image: url('new.webp'); background-repeat: no-repeat; background-size: cover;">
+    <div class="card text-center">
+  <div class="card-header">
+   <h1 class="bg-warning">Movie App</h1> 
+  </div>
+  <div class="card-body bg-dark text-white">
+    <input type="text" placeholder="Enter movie name" id="moviename" class="form-control">
+    <button class="btn btn-warning mt-2" onclick="accessdata()">Search</button>
+  </div>
+  <div  id="result">
+
+  </div>
+</div>
+</body>
+<script>
+    function accessdata(){
+        movie=moviename.value
+        fetch(`http://www.omdbapi.com/?t=${movie}&apikey=89df110f`).then(data=>data.json()).then(mData=>displayData(mData))
+
+        function displayData(dataArray){
+            name=dataArray.Title
+            year=dataArray.Year
+            image=dataArray.Poster
+            director=dataArray.Director
+            language=dataArray.Language
+            result.innerHTML=`<div>
+                <div class="card-body c1 text-dark">
+                    <img src="${image}">
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">YEAR - ${year}</p>
+                    <p class="card-text">DIRECTOR - ${director}</p>
+                    <p class="card-text">LANGUAGE - ${language}</p>
+                    </div>
+                </div>`
+                
+        }
+    }
+</script>
+</html>
