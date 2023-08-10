@@ -27,7 +27,7 @@ height: 1200px;">
 <script>
     function searchMovie(){
         movie=moviename.value
-        fetch(`http://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=89df110f`).then(data=>data.json()).then(mData=>displayData(mData))
+        fetch(`http://www.omdbapi.com/?i=tt3896198&t=${movie}&apikey=89df110f`).then(data=>data.json()).then(mData=>displayData(mData))
 
         function displayData(dataArray){
             name=dataArray.Title
