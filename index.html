@@ -17,7 +17,7 @@ height: 1200px;">
   </div>
   <div class="card-body container bg-dark text-white">
     <input type="text" placeholder="Enter movie name" id="moviename" class="form-control">
-    <button class="btn btn-warning mt-2" onclick="searchMovie()" >Search</button>
+    <button class="btn btn-warning mt-2" onclick="searchMovie()">Search</button>
   </div>
   <div id="result">
 
@@ -40,13 +40,13 @@ height: 1200px;">
             plot=dataArray.Plot
             result.innerHTML=`<div>
                 <div class="card-body c1 text-dark">
-                    <img src="${image}">
+                    <img src="${image}" width=170px height=280px>
                     <h5 class="card-title">${name}</h5>
                     <p class="card-text">YEAR - ${year}</p>
                     <p class="card-text">DIRECTOR - ${director}</p>
-                    <p class="card-text">LANGUAGE - ${language}</p>
                     <p class="card-text">WRITER - ${writer}</p>
                     <p class="card-text">ACTORS - ${actors}</p>
+                    <p class="card-text">LANGUAGE - ${language}</p>
                     <p class="card-text">PLOT - ${plot}</p>
 
                     </div>
